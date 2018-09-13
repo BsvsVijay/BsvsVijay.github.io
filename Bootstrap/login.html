@@ -1,0 +1,116 @@
+<?php
+	session_start();
+	$servername="localhost";
+	$username="root";
+	$password="";
+	$dbname="project";
+	$conn=mysqli_connect($servername,$username,$password,$dbname);
+	$name = $password = $result;
+	$nameErr = $passErr = ;
+	if(isset($_POST['login_btn']))
+	{
+		if(empty($_POST["name"]))
+		{
+			$nameErr = "Name is Required";
+		}
+		else
+		{
+			$name = test_input($_POST["name"]);
+			if(!preg_match("/^[a-zA-Z]*$/",$name))
+			{
+				$nameErr = "Only letters and white space allowed";
+			}
+		}
+		if(empty($_POST["password"]))
+		{
+				$passErr = "Password required";
+		}
+		else{
+			$password = test_input($_POST["password"]);
+			if(!preg_match("/[0-9a-zA-Z].,/",$password))
+			{
+				$passErr = "Only number,alphabets are allowed";
+			}
+		}
+    $sql = "SELECT * FROM customerreg WHERE name='$name' AND password= '$password'";
+        $result = mysqli_query($conn, $sql);
+		if(mysqli_num_rows($result) == 1)
+		{
+        if(!empty($password) == TRUE)
+        header("location: Project.html"); //redirect to home page
+    }}
+	function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+	
+?>
+<html>
+	<head>
+		<title>Log In</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="fontawesome-free-5.1.0-web\css\all.css">
+
+		<style>
+			.container-login{
+					background:black;
+					box-sizing:border-box;
+					height:300px;
+					width:250px;
+					margin-top:50%;
+					margin:auto;
+					box-shadow:0 0 20px rgba(0,0,0,.9);
+			}
+			#name,#password{
+				background:transparent;
+				border:none;
+				border-bottom:1px solid white;
+				outline:none;
+				color:white;
+			}
+			img{
+				border-radius:50%;
+				display:block;
+				margin-left:auto;
+				margin-right:auto;
+				margin-top:35px;
+			}
+			#login_btn{
+				border:none;
+				outline:none;
+				padding:5px 30px;
+				background:white;
+				border-top-left-radius:25% 50%;
+				border-top-right-radius:25% 50%;
+				border-bottom-right-radius:25% 50%;
+				border-bottom-left-radius:25% 50%;
+			}
+			#login_btn:hover{
+				background:gray;
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<img src="user.jpg" height="70px" width="70px" id="user">
+					<div class="container-login"><center>
+		<br><br>			<br>
+						<input type="text" placeholder="Name" id="name">
+<br><br><br><div class="error"><?php echo $nameErr; ?></div>
+						<input type="password" placeholder="Password" id="password">
+				<br><br><div class="error"><?php echo $passErr; ?></div>		
+						<input type="button" value="Login" id="login_btn">
+						<br><br>
+						
+						<a href="#">Create Account</a></center>
+					</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

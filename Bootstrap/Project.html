@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bootstrap Example</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="fontawesome-free-5.1.0-web\css\all.css">
+	<style>
+	
+		a{
+			text-decoration:none;
+			color:lightgray;
+		}
+		a:hover{
+			color:white;
+			text-decoration:none;
+		}
+		.content{
+			text-align:left;
+			color:white;
+		}
+		.content1{
+			text-align:right;
+			color:white;
+		}
+		.heading{
+			text-align:center;
+			color:white;
+			border-right:1px solid white;
+		}
+		#search_btn{
+			border:none;
+			border-bottom:1px solid white;
+			background:transparent;
+			outline:none;
+			color:white;
+		}
+		#search{
+			border-radius:25%;
+			border:none;
+			outline:none;
+			background:transparent;
+			color:white;
+		}
+		#search:hover{
+			color:green;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-inverse">
+	<div class="container-fluid">
+		<div class="row">
+		<div class="col-lg-2"><br>
+				<div class="heading">Stock Management</a></div>
+			</div>
+			<div class="col-lg-2 col-md-"><br>
+				<div class="content"><a href="#">Home</a></div>
+			</div>
+			<div class="col-lg-2"><br>
+				<div class="content"><a href="#" title="Products">Products</a></div>
+			</div>
+			<div class="col-lg-2"><br>
+				<div class="content"><a href="#">Contact Us</a></div>
+			</div>
+			<div class="col-lg-2">
+			<div class="row">
+			<div class="col-lg-8"><br><div class="content">
+				<input type="text" placeholder="Search..." id="search_btn">
+			</div></div>
+			<div class="col-lg-4"><br><div class="content">
+			<button type="button" class="btn btn-danger">
+				<span class="glyphicon glyphicon-search"></span>
+				</button>
+			</div></div></div></div>
+			<div class="col-lg-2"><br>
+				<div class="content1"><a href="#">Logout</a></div>
+			</div>
+		</div>
+	</div>
+	</nav><br>
+</body>
+</html>
